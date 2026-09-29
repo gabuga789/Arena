@@ -24,9 +24,9 @@ namespace Arena
             double kritischeChance = double.Parse(Console.ReadLine());
 
             // Absicherung der kritischen Chance
-            if (kritischeChance > 1)
+            if (kritischeChance > 1 || kritischeChance<0)
             {
-                Console.WriteLine("Eine Chance über 1 gibt es nicht - sie wird auf 0 gesetzt.");
+                Console.WriteLine(" Die Chance muss zwischen 0 und 1 liegen - sie wird auf 0 gesetzt.");
                 kritischeChance = 0;
             }
 
@@ -127,13 +127,9 @@ namespace Arena
             Console.Write("Davon gewonnen: ");
             int siege = int.Parse(Console.ReadLine());
 
-            if (kaempfe <= 0)
+            if (kaempfe <= 0 || siege<kaempfe)
             {
-                Console.WriteLine("Ohne Kämpfe gibt es keine Bilanz.");
-            }
-            else if (siege > kaempfe)
-            {
-                Console.WriteLine("Mehr Siege als Kämpfe? Das kann nicht stimmen.");
+                Console.WriteLine(" Unsinnige Eingabe - die Bilanz kann nicht berechnet werden.");
             }
             else
             {
